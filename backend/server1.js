@@ -1,37 +1,19 @@
-
-const express = require('express');
+const express=require('express');
 const mongoose = require('mongoose');
-const cors = require('cors');
-const quizRoutes = require('../routes/quizRoutes');
-const scoreRoutes = require('../routes/scoreRoutes');
 
+const connectDB = async () => {
+  try {
+    console.log('Mongo URI:', process.env.MONGO_URI);  
 
-
-const app = express();
-const PORT = 3004;
-
-// Middleware
-app.use(cors());
-app.use(express.json());
-
-// MongoDB Connection
-mongoose.connect('mongodb://127.0.0.1:27017/quizdb', {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-})
-.then(() => console.log(' MongoDB connected'))
-.catch((err) => console.error(' MongoDB connection error:', err));
-
-
-
-
-
-
-app.use('/api/quizzes', quizRoutes);
-app.use('/api/scores', scoreRoutes);
-
-
-app.listen(PORT, () => {
-  console.log(` Server running on http://localhost:${PORT}`);
-});
-
+    await mongoose.connect(process.env.MONGO_URI, {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+    });
+    console.log('MongoDB Atlas connected');
+      } catch (error) {
+    console.error('MongoDB Atlas connection error:', error);
+    process.exit(1); // Exit the process with failure
+  }
+  
+};
+module.exports = connectDB;
