@@ -11,7 +11,7 @@ const connectDB = require('./server1');
 
 const quizRoutes = require('../routes/quizRoutes');
 const scoreRoutes = require('../routes/scoreRoutes');
-const authRoutes = require('../routes/authRoutes');
+const authroutes = require('../routes/authroutes');
 
 const app = express();
 const PORT = process.env.PORT || 3004;
@@ -35,7 +35,7 @@ mongoose.connect(process.env.MONGO_URI || 'mongodb://127.0.0.1:27017/quizdb', {
 // API Routes
 app.use('/api/quizzes', quizRoutes);
 app.use('/api/scores', scoreRoutes);
-app.use('/api/auth', authRoutes);
+app.use('/api/auth', authroutes);
 
 // Start server
 app.listen(PORT, () => {
