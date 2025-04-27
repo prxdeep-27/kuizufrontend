@@ -1,0 +1,13 @@
+[
+  { 
+    "category": "tamizh",
+    "questions":[
+    {
+      "question": "Who won the 2011 Cricket World Cup?",
+      "options": ["India", "Australia", "Sri Lanka", "England"],
+      "answer": "India"
+      
+    }
+]
+  }
+]
