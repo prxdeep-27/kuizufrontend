@@ -11,7 +11,7 @@ const connectDB = require('./server1');
 
 const quizRoutes = require('./routes/quizRoutes');
 const scoreRoutes = require('./routes/scoreRoutes');
-const authroutes = require('./routes/authroutes');
+const authroutes = require('./routes/authRoutes');
 
 const app = express();
 const PORT = process.env.PORT || 3004;
