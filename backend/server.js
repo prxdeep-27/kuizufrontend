@@ -19,9 +19,7 @@ const PORT = process.env.PORT || 3004;
 connectDB(); // connect to Atlas
 
 // Middleware
-app.use(cors({
-  origin: "http://localhost:3000"
-}));
+app.use(cors());
 app.use(express.json());
 
 // MongoDB Connection
