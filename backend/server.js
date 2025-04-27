@@ -36,7 +36,7 @@ const connectDB = require('./server1');
 
 const quizRoutes = require('../routes/quizRoutes');
 const scoreRoutes = require('../routes/scoreRoutes');
-const authRoutes = require('../routes/authroutes');
+const authRoutes = require('../routes/authRoutes');
 
 const app = express();
 const PORT = process.env.PORT || 3004;
@@ -44,7 +44,9 @@ const PORT = process.env.PORT || 3004;
 connectDB(); // connect to Atlas
 
 // Middleware
-app.use(cors());
+app.use(cors({
+  origin: "http://localhost:3000"
+}));
 app.use(express.json());
 
 // MongoDB Connection
