@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import './Register.css'; // Add this line
 import { useNavigate } from 'react-router-dom';
-import { baseURL } from './urls';
+// import { baseURL } from './urls';
 
 
 const Register = () => {
@@ -16,8 +16,8 @@ const Register = () => {
   const handleRegister = async (e) => {
     e.preventDefault();
     try {
-      // const response = await axios.post('http://localhost:3004/api/auth/register', {
-      const response=await axios.post(`${baseURL}/api/users`,{
+      const response = await axios.post('http://localhost:3004/api/auth/register', {
+      // const response=await axios.post(`${baseURL}/api/users`,{
         username,
         password,
       });
